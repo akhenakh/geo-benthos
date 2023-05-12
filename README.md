@@ -1,6 +1,6 @@
 # Geo-Benthos
 
-A [Benthos](benthos.dev/) plugin to transform geographic coordinates from a stream.
+[Benthos](benthos.dev/) plugins to transform geographic coordinates from a stream.
 
 This repo contains multiple Benthos plugins as Go modules, that you can build on demand (see `cmd/geo-benthos`).
 
