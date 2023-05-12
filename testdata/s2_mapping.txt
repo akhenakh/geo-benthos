@@ -1,0 +1,2 @@
+root = this
+root.s2 = s2_object(this.lat, this.lng, 15)

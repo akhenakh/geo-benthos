@@ -1,18 +1,20 @@
 # geo-benthos
-A benthos geo plugin to transform coordinates
 
+A [Benthos](benthos.dev/) plugin to transform geographic coordinates from a stream.
 
-## Example usages
+This repo contains multiple Benthos plugins as Go modules, that you can build on demand (see `cmd/geo-benthos`).
 
-`position.json` contains position:
-
-```js
-{"id":42, "lat": 48.86, "lng": 2.34}
-```
+Note that the h3 plugin is using a [CGO free version](https://github.com/akhenakh/goh3).
 
 ## Transform latitude and longitude into an Uber h3 cell
 
 Use `h3_object` with the following parameters: `latitude`, `longitude`, `resolution`.
+
+An example `position.json`:
+
+```js
+{"id":42, "lat": 48.86, "lng": 2.34}
+```
 
 A `h3.yaml` pipeline.
 
@@ -47,6 +49,11 @@ go build -o geo-benthos ./cmd/geo-benthos
 
 Use `s2_object` with the following parameters: `latitude`, `longitude`, `resolution`.
 
+An example `position.json`:
+
+```js
+{"id":42, "lat": 48.86, "lng": 2.34}
+
 A `s2.yaml` pipeline.
 
 ```yaml
@@ -75,3 +82,19 @@ go build -o geo-benthos ./cmd/geo-benthos
 ./geo-benthos -c testdata/s2.yaml
 {"id":42,"lat":48.86,"lng":2.34,"s2":"2/033303031301002"}
 ```
+
+
+## Live Testing
+
+Run this command and point your browser to http://localhost:4195/
+
+```sh
+./geo-benthos blobl server --no-open --host 0.0.0.0 --input-file ./testdata/position.json -m testdata/s2_mapping.txt   
+```
+
+# TODO
+
+[ ] s2 shape index to perform PIP
+[ ] spatialite lookup to perform PIP
+[X] lat lng to h3
+[X] lat lng to s2
