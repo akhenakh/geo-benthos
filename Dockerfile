@@ -14,7 +14,7 @@ WORKDIR /
 COPY --from=build /etc/ssl/certs/ca-certificates.crt /etc/ssl/certs/
 COPY --from=build /etc/passwd /etc/passwd
 COPY --from=build /build/geo-benthos .
-COPY ./config/example_1.yaml /benthos.yaml
+COPY ./testdata/s2.yaml /s2.yaml
 
 USER benthos
 
@@ -22,4 +22,4 @@ EXPOSE 4195
 
 ENTRYPOINT ["/geo-benthos"]
 
-CMD ["-c", "/benthos.yaml"]
+CMD ["-c", "/s2.yaml"]

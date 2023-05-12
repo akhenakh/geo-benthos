@@ -1,4 +1,4 @@
-# geo-benthos
+# Geo-Benthos
 
 A [Benthos](benthos.dev/) plugin to transform geographic coordinates from a stream.
 
@@ -83,7 +83,6 @@ go build -o geo-benthos ./cmd/geo-benthos
 {"id":42,"lat":48.86,"lng":2.34,"s2":"2/033303031301002"}
 ```
 
-
 ## Live Testing
 
 Run this command and point your browser to http://localhost:4195/
@@ -92,9 +91,10 @@ Run this command and point your browser to http://localhost:4195/
 ./geo-benthos blobl server --no-open --host 0.0.0.0 --input-file ./testdata/position.json -m testdata/s2_mapping.txt   
 ```
 
-# TODO
+## TODO
 
-[ ] s2 shape index to perform PIP
-[ ] spatialite lookup to perform PIP
-[X] lat lng to h3
-[X] lat lng to s2
+- [ ] s2 shape index to perform PIP
+- [ ] spatialite lookup to perform PIP
+- [ ] random points in a rect
+- [X] lat lng to h3
+- [X] lat lng to s2
