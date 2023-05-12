@@ -10,12 +10,11 @@ A benthos geo plugin to transform coordinates
 {"id":42, "lat": 48.86, "lng": 2.34}
 ```
 
-## Transform latitude and longitude into a Uber h3 cell
+## Transform latitude and longitude into an Uber h3 cell
 
 Use `h3_object` with the following parameters: `latitude`, `longitude`, `resolution`.
 
-
-An `h3.yaml` pipeline.
+A `h3.yaml` pipeline.
 
 ```yaml
 input:
@@ -48,8 +47,8 @@ go build -o geo-benthos ./cmd/geo-benthos
 
 Use `s2_object` with the following parameters: `latitude`, `longitude`, `resolution`.
 
+A `s2.yaml` pipeline.
 
-An `s2.yaml` pipeline.
 ```yaml
 input:
   file:
