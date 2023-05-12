@@ -53,6 +53,7 @@ An example `position.json`:
 
 ```js
 {"id":42, "lat": 48.86, "lng": 2.34}
+```
 
 A `s2.yaml` pipeline.
 
