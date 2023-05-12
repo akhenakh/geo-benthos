@@ -19,3 +19,6 @@
 
 # Go workspace file
 go.work
+
+geo-benthos
+cmd/geo-benthos/geo-benthos

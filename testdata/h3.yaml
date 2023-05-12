@@ -1,0 +1,16 @@
+input:
+  file:
+    paths: ["testdata/position.json"]
+    codec: all-bytes
+
+pipeline:
+  threads: 1
+  processors:
+  - mapping: |
+      root = this
+      root.h3 = h3_object(this.lat, this.lng, 5)
+
+output:
+  label: "out"
+  stdout:
+    codec: lines
