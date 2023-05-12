@@ -3,8 +3,10 @@ module github.com/akhenakh/geo-benthos
 go 1.20
 
 require (
-	github.com/benthosdev/benthos-plugin-example v0.0.0-20221206183800-542b0a4d679e
+	github.com/akhenakh/goh3 v0.0.0-20230323014357-f6915f2df93a
 	github.com/benthosdev/benthos/v4 v4.15.0
+	github.com/golang/geo v0.0.0-20230421003525-6adc56603217
+	modernc.org/libc v1.22.3
 )
 
 require (
@@ -44,7 +46,6 @@ require (
 	github.com/PaesslerAG/gval v1.2.2 // indirect
 	github.com/PaesslerAG/jsonpath v0.1.1 // indirect
 	github.com/Shopify/sarama v1.30.1 // indirect
-	github.com/akhenakh/goh3 v0.0.0-20230323014357-f6915f2df93a // indirect
 	github.com/andybalholm/brotli v1.0.4 // indirect
 	github.com/apache/arrow/go/arrow v0.0.0-20211112161151-bc219186db40 // indirect
 	github.com/apache/thrift v0.17.0 // indirect
@@ -271,7 +272,6 @@ require (
 	lukechampine.com/uint128 v1.2.0 // indirect
 	modernc.org/cc/v3 v3.40.0 // indirect
 	modernc.org/ccgo/v3 v3.16.13 // indirect
-	modernc.org/libc v1.22.3 // indirect
 	modernc.org/mathutil v1.5.0 // indirect
 	modernc.org/memory v1.5.0 // indirect
 	modernc.org/opt v0.1.3 // indirect

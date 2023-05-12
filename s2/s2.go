@@ -1,0 +1,43 @@
+package s2
+
+import (
+	"github.com/benthosdev/benthos/v4/public/bloblang"
+	"github.com/golang/geo/s2"
+)
+
+func init() {
+	h3ObjectSpec := bloblang.NewPluginSpec().
+		Param(bloblang.NewFloat64Param("lat")).
+		Param(bloblang.NewFloat64Param("lng")).
+		Param(bloblang.NewInt64Param("resolution"))
+
+	err := bloblang.RegisterFunctionV2(
+		"s2_object", h3ObjectSpec, func(args *bloblang.ParsedParams) (bloblang.Function, error) {
+			lat, err := args.GetFloat64("lat")
+			if err != nil {
+				return nil, err
+			}
+
+			lng, err := args.GetFloat64("lng")
+			if err != nil {
+				return nil, err
+			}
+
+			resolution, err := args.GetInt64("resolution")
+			if err != nil {
+				return nil, err
+			}
+
+			return func() (interface{}, error) {
+				latLng := s2.LatLngFromDegrees(lat, lng)
+
+				c := s2.CellIDFromLatLng(latLng)
+				c = c.Parent(int(resolution))
+
+				return c.String(), nil
+			}, nil
+		})
+	if err != nil {
+		panic(err)
+	}
+}

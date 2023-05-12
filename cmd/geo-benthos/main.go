@@ -8,8 +8,9 @@ import (
 	// Import all standard Benthos components
 	_ "github.com/benthosdev/benthos/v4/public/components/all"
 
-	// Add your plugin packages here
+	// Add the geo plugin you want
 	_ "github.com/akhenakh/geo-benthos/h3"
+	_ "github.com/akhenakh/geo-benthos/s2"
 )
 
 func main() {
