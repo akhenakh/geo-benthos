@@ -119,13 +119,15 @@ output:
     codec: lines
 ```
 
-Enrich the input with the h3 cell:
+Enrich the input with the timezone:
 
 ```sh
 go build -o geo-benthos ./cmd/geo-benthos
 ./geo-benthos -c testdata/tz.yaml
 {"tz":"Europe/Paris","id":42,"lat":48.86,"lng":2.34}
 ```
+
+tz module is using [tzf](https://github.com/ringsaturn/tzf).
 
 ## Live Testing
 
