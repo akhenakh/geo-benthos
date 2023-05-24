@@ -1,0 +1,16 @@
+input:
+  file:
+    paths: ["testdata/position.json"]
+    codec: all-bytes
+
+pipeline:
+  threads: 1
+  processors:
+  - mapping: |
+      root = this
+      root.tz = tz(this.lat, this.lng)
+
+output:
+  label: "out"
+  stdout:
+    codec: lines
