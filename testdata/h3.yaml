@@ -8,7 +8,7 @@ pipeline:
   processors:
   - mapping: |
       root = this
-      root.h3 = h3_object(this.lat, this.lng, 5)
+      root.h3 = h3(this.lat, this.lng, 5)
 
 output:
   label: "out"

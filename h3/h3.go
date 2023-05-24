@@ -7,7 +7,7 @@ import (
 )
 
 func init() {
-	h3ObjectSpec := bloblang.NewPluginSpec().
+	h3Spec := bloblang.NewPluginSpec().
 		Param(bloblang.NewFloat64Param("lat")).
 		Param(bloblang.NewFloat64Param("lng")).
 		Param(bloblang.NewInt64Param("resolution"))
@@ -15,7 +15,7 @@ func init() {
 	tls := libc.NewTLS()
 
 	err := bloblang.RegisterFunctionV2(
-		"h3_object", h3ObjectSpec, func(args *bloblang.ParsedParams) (bloblang.Function, error) {
+		"h3", h3Spec, func(args *bloblang.ParsedParams) (bloblang.Function, error) {
 			lat, err := args.GetFloat64("lat")
 			if err != nil {
 				return nil, err

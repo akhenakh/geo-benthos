@@ -6,13 +6,13 @@ import (
 )
 
 func init() {
-	h3ObjectSpec := bloblang.NewPluginSpec().
+	s2Spec := bloblang.NewPluginSpec().
 		Param(bloblang.NewFloat64Param("lat")).
 		Param(bloblang.NewFloat64Param("lng")).
 		Param(bloblang.NewInt64Param("resolution"))
 
 	err := bloblang.RegisterFunctionV2(
-		"s2_object", h3ObjectSpec, func(args *bloblang.ParsedParams) (bloblang.Function, error) {
+		"s2", s2Spec, func(args *bloblang.ParsedParams) (bloblang.Function, error) {
 			lat, err := args.GetFloat64("lat")
 			if err != nil {
 				return nil, err
