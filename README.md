@@ -88,15 +88,7 @@ go build -o geo-benthos ./cmd/geo-benthos
 {"id":42,"lat":48.86,"lng":2.34,"s2":"2/033303031301002"}
 ```
 
-## Live Testing
-
-Run this command and point your browser to http://localhost:4195/
-
-```sh
-./geo-benthos blobl server --no-open --host 0.0.0.0 --input-file ./testdata/position.json -m testdata/s2_mapping.txt   
-```
-
-## Get the timezone for a latitude and longitude 
+## Get the timezone for a given latitude and longitude
 
 Use `tz` with the following parameters: `latitude`, `longitude`.
 
@@ -133,6 +125,14 @@ Enrich the input with the h3 cell:
 go build -o geo-benthos ./cmd/geo-benthos
 ./geo-benthos -c testdata/tz.yaml
 {"tz":"Europe/Paris","id":42,"lat":48.86,"lng":2.34}
+```
+
+## Live Testing
+
+Run this command and point your browser to http://localhost:4195/
+
+```sh
+./geo-benthos blobl server --no-open --host 0.0.0.0 --input-file ./testdata/position.json -m testdata/s2_mapping.txt   
 ```
 
 
