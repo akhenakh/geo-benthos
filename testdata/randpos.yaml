@@ -1,0 +1,17 @@
+input:
+  randpos:
+    min_lat: 46.0
+    max_lat: 48.0
+    min_lng: 2.0
+    max_lng: 2.3
+pipeline:
+  threads: 1
+  processors:
+  - mapping: |
+      root = this
+      root.tz = tz(this.lat, this.lng)
+
+output:
+  label: "out"
+  stdout:
+    codec: lines

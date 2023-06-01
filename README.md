@@ -2,11 +2,9 @@
 
 [Benthos](benthos.dev/) plugins to transform geographic coordinates from a stream.
 
-This repo contains multiple Benthos plugins as Go modules, that you can build on demand (see `cmd/geo-benthos`).
-
 Benthos is the swiss army of stream processing: Benthos solves common data engineering tasks such as transformations, integrations, and multiplexing with declarative and unit testable configuration. 
 
-
+This repo contains multiple Benthos plugins as Go modules, that you can build on demand (see `cmd/geo-benthos`).
 
 Note that the h3 plugin is using a [CGO free version](https://github.com/akhenakh/goh3).
 
@@ -128,6 +126,30 @@ go build -o geo-benthos ./cmd/geo-benthos
 ```
 
 tz module is using [tzf](https://github.com/ringsaturn/tzf).
+
+## Generate random position in a range (mainly for debug)
+
+This is an input plugin that will generate random coordinates in your range.
+
+```yaml
+input:
+  randpos:
+    min_lat: 46.0
+    max_lat: 48.0
+    min_lng: 2.0
+    max_lng: 2.3
+pipeline:
+  threads: 1
+  processors:
+  - mapping: |
+      root = this
+      root.tz = tz(this.lat, this.lng)
+
+output:
+  label: "out"
+  stdout:
+    codec: lines
+```
 
 ## Live Testing
 

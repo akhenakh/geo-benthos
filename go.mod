@@ -183,6 +183,7 @@ require (
 	github.com/oschwald/maxminddb-golang v1.8.0 // indirect
 	github.com/paulmach/orb v0.9.0 // indirect
 	github.com/pebbe/zmq4 v1.2.7 // indirect
+	github.com/peterstace/simplefeatures v0.42.1 // indirect
 	github.com/pierrec/lz4 v2.6.1+incompatible // indirect
 	github.com/pierrec/lz4/v4 v4.1.17 // indirect
 	github.com/pkg/browser v0.0.0-20210911075715-681adbf594b8 // indirect
