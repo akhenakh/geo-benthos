@@ -19,7 +19,7 @@ An example `position.json`:
 {"id":42, "lat": 48.86, "lng": 2.34}
 ```
 
-A `tz.yaml` pipeline.
+A `country.yaml` pipeline.
 
 ```yaml
 input:
