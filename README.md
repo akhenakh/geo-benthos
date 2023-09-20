@@ -30,6 +30,7 @@ pipeline:
   threads: 1
   processors:
   - mapping: |
+      #!blobl
       root = this
       root.h3 = h3(this.lat, this.lng, 5)
 
@@ -69,6 +70,7 @@ pipeline:
   threads: 1
   processors:
   - mapping: |
+      #!blobl
       root = this
       root.s2 = s2_object(this.lat, this.lng, 15)
 
@@ -108,6 +110,7 @@ pipeline:
   threads: 1
   processors:
   - mapping: |
+      #!blobl
       root = this
       root.tz = tz(this.lat, this.lng)
 
@@ -138,12 +141,6 @@ input:
     max_lat: 48.0
     min_lng: 2.0
     max_lng: 2.3
-pipeline:
-  threads: 1
-  processors:
-  - mapping: |
-      root = this
-      root.tz = tz(this.lat, this.lng)
 
 output:
   label: "out"

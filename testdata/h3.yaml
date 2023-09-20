@@ -7,6 +7,7 @@ pipeline:
   threads: 1
   processors:
   - mapping: |
+      #!blobl
       root = this
       root.h3 = h3(this.lat, this.lng, 5)
 
