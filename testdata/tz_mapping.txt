@@ -1,0 +1,2 @@
+root = this
+root.tz = tz(this.lat, this.lng)
