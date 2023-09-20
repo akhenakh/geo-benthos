@@ -8,6 +8,49 @@ This repo contains multiple Benthos plugins as Go modules, that you can build on
 
 Note that the h3 plugin is using a [CGO free version](https://github.com/akhenakh/goh3).
 
+
+## Get the country for a latitude and longitude
+
+Use `country` with the following parameters: `latitude`, `longitude`.
+
+An example `position.json`:
+
+```js
+{"id":42, "lat": 48.86, "lng": 2.34}
+```
+
+A `tz.yaml` pipeline.
+
+```yaml
+input:
+  file:
+    paths: ["testdata/position.json"]
+    codec: all-bytes
+
+pipeline:
+  threads: 1
+  processors:
+  - mapping: |
+      #!blobl
+      root = this
+      root.country = country(this.lat, this.lng)
+
+output:
+  label: "out"
+  stdout:
+    codec: lines
+```
+
+Enrich the input with the timezone:
+
+```sh
+go build -o geo-benthos ./cmd/geo-benthos
+./geo-benthos -c testdata/country.yaml
+{"country":["France"],"id":42,"lat":48.86,"lng":2.34}
+```
+
+country module is using [coord2country](https://github.com/akhenakh/coord2country).
+
 ## Transform latitude and longitude into an Uber h3 cell
 
 Use `h3` with the following parameters: `latitude`, `longitude`, `resolution`.
@@ -165,3 +208,4 @@ Run this command and point your browser to http://localhost:4195/
 - [X] lat lng to h3
 - [X] lat lng to s2
 - [X] lat lng to tz
+- [X] lat lng to country
